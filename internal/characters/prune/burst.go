@@ -14,12 +14,12 @@ var burstFrames []int
 const burstKey = "prune-burst"
 
 func init() {
-	burstFrames = frames.InitAbilSlice(73) // walk
+	burstFrames = frames.InitAbilSlice(82) // charge
 	burstFrames[action.ActionAttack] = 73
-	burstFrames[action.ActionCharge] = 82
 	burstFrames[action.ActionSkill] = 72
 	burstFrames[action.ActionDash] = 74
 	burstFrames[action.ActionJump] = 73
+	burstFrames[action.ActionWalk] = 73
 	burstFrames[action.ActionSwap] = 71
 }
 

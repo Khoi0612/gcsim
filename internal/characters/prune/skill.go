@@ -23,13 +23,13 @@ const (
 )
 
 func init() {
-	skillFrames = frames.InitAbilSlice(44) // walk
+	skillFrames = frames.InitAbilSlice(59)
 	skillFrames[action.ActionAttack] = 56
-	skillFrames[action.ActionCharge] = 59
 	skillFrames[action.ActionSkill] = 41
 	skillFrames[action.ActionBurst] = 28
 	skillFrames[action.ActionDash] = 28
 	skillFrames[action.ActionJump] = 29
+	skillFrames[action.ActionWalk] = 44
 	skillFrames[action.ActionSwap] = 27
 
 	skillConvertFrames = frames.InitAbilSlice(82) // walk

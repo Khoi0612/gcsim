@@ -6,6 +6,8 @@ import (
 	"github.com/genshinsim/gcsim/pkg/core/action"
 	"github.com/genshinsim/gcsim/pkg/core/attributes"
 	"github.com/genshinsim/gcsim/pkg/core/info"
+	"github.com/genshinsim/gcsim/pkg/core/keys"
+	"github.com/genshinsim/gcsim/pkg/core/player"
 	"github.com/genshinsim/gcsim/pkg/core/player/character"
 )
 
@@ -69,4 +71,14 @@ func (c *char) AnimationStartDelay(k info.AnimationDelayKey) int {
 		return 9
 	}
 	return c.Character.AnimationStartDelay(k)
+}
+
+func (c *char) NextQueueItemIsValid(k keys.Char, a action.Action, p map[string]int) error {
+	// TODO: you can do the CA after the N4 resets into idle
+	if a == action.ActionCharge {
+		if c.Core.Player.LastAction.Type == action.ActionAttack && c.NormalCounter == 0 {
+			return player.ErrInvalidChargeAction
+		}
+	}
+	return c.Character.NextQueueItemIsValid(k, a, p)
 }
